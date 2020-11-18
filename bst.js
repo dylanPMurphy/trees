@@ -5,5 +5,22 @@ function BTNode(value) {
 }
 function BST() {
     this.root = null;
-    // add methods here...
+    
+    function add(val){
+
+    }
+    function contains(val){
+        
+    }
+    function min(){
+        
+    }
+    function max(){
+        
+    }
+    function size(){
+        
+    }
+    function isEmpty()
+
 }
