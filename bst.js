@@ -107,10 +107,20 @@ class BST {
             }
         }
     }
-    // function size(){
-        
-    // }
-    // function isEmpty()
+    size(root){
+        if(root==null){
+            return 0;
+        }
+        return 1 + this.size(root.left) + this.size(root.right);
+    }
+    isEmpty(){
+        if(this.root==null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 }
 
@@ -133,4 +143,12 @@ console.log(bst1.contains(123));
 console.log(bst1.contains(112341214));
 console.log(bst1.min())
 console.log(bst1.max())
+console.log(bst1.root)
+
+console.log(bst1.isEmpty())
+console.log(bst1.size(bst1.root))
+
+
+var bst2 = new BST();
+console.log(bst2.isEmpty())
 
