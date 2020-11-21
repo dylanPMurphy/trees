@@ -18,42 +18,61 @@ class BST {
     
     
     add(val){
-        var newNode = new BTNode(val)
-        if(root == null){
+        var newNode = new BTNode(val);
+        if(this.root == null){
             this.root  = newNode;
+            
             return this;
         }
-        var runner = this.root;
-        while (runner != null){
-            if (runner.val > val){
-                if(runner.left ==null){
-                    runner.left = newNode;
+        else{
+            var runner = this.root;
+            while (runner != null){
+                if(runner.val == val){
+                    runner.count++;
                     return this;
                 }
                 else{
-                    runner = runner.left;
-                }
-            }
-            else if(runner.val == val){
-                runner.count++;
-                return this;
-            }
-            else{
-                if(runner.right == null){
-                    runner.right = newNode;
-                    return this;
-                }
-                else{
-                    runner = runner.right;
-                }
+                    if (runner.val > val){
+                        if(runner.left == null){
+                            runner.left = newNode;
+                            return this;
+                        }
+                        else{
+                            runner = runner.left;
+                        }
+                    }
+                    else{
+                        if(runner.right == null){
+                            runner.right = newNode;
+                            return this;
+                        }
+                        else{
+                            runner = runner.right;
+                        }
+                    }
                 
+                    
+                }
             }
-        }        
+        }
 
     }
-    // function contains(val){
-        
-    // }
+    contains(val){
+        var runner = this.root;
+        while(runner != null){
+            
+            if(runner.val == val){
+                return true;
+            }
+            else if (runner.val > val){
+                runner = runner.left;
+            }
+            else{
+                runner = runner.right;
+            }
+        }
+        return false;
+    }
     // function min(){
         
     // }
@@ -71,6 +90,12 @@ class BST {
 var bst1 = new BST();
 bst1.add(123);
 bst1.add(1234);
-bst1.add(23);
-bst1.add(1);
+bst1.add(123);
+bst1.add(12234);
+bst1.add(12333);
+bst1.add(11234);
+
+
 console.log(bst1);
+console.log(bst1.contains(123));
+console.log(bst1.contains(112341214));
